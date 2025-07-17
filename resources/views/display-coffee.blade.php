@@ -24,6 +24,10 @@
                             @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                             @endforeach
+
+                            @if($ce->stock === '0')
+                                <button disabled class="items-center px-3 py-2 text-sm font-medium text-white bg-gray-700 rounded-lg  focus:ring-4 focus:outline-none focus:ring-gray-300 cursor-not-allowed w-full">NO STOCKS</button>
+                            @else
                             <input type="hidden" name="coffee_id" value="{{ $ce->id}}">
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             <input type="hidden" name="table" value="{{ Auth::user()->table}}">
@@ -31,7 +35,7 @@
                             <input type="hidden" name="price" value="{{ $ce->price}}">
                             <input type="number" name="quantity"
                                 class="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-colors duration-200"
-                                placeholder="Quantity">
+                                placeholder="Quantity" min="1" max="{{ $ce->stock }}">
 
                             <button type="submit"
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-r-800">
@@ -45,6 +49,7 @@
 
 
                             </button>
+                            @endif
                         </form>
                     </div>
 

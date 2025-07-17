@@ -40,17 +40,14 @@ class OrderController extends Controller
 
         Order::create($validated);
 
-
-
-
-        $coffeeId = $request->input('coffee_id');
-        $coffee = Coffee::find($coffeeId);
+        $coffeeId = $request->input('coffee_id'); // get the id from the input
+        $coffee = Coffee::find($coffeeId); // getting the id from coffee table - ggs guys next commit
 
         $currentStock = Coffee::where('id', $coffeeId)->first();
         $quantity = $request->input('quantity');
-        $newStock = (float)$currentStock->stock - (float)$quantity;
+        $newStock = (float)$currentStock->stock - (float)$quantity; // subtracting the quantity to the current stock 
 
-        $coffee->update(['stock' => $newStock]);
+        $coffee->update(['stock' => $newStock]); // updating the stock with the value of the new stock - nice game!
 
         return redirect('/display-coffee');
     }
