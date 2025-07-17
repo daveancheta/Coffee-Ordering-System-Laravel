@@ -14,4 +14,14 @@ class GetController extends Controller
 
         return view('admin.create-coffee', compact('coffee'));
     }
+
+     public function display_coffee () 
+    {
+
+        $coffee = Coffee::all();
+
+        return view('display-coffee', compact('coffee'));
+    }
+
+    
 }
