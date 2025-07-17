@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeContrloller extends Controller
+class HomeController extends Controller
 {
     public function index () 
     {
@@ -14,4 +14,5 @@ class HomeContrloller extends Controller
     {
         return view('display-coffee');
     }
+   
 }

@@ -11,25 +11,138 @@
 </head>
 
 <body class="bg-gray-900 dark:bg-gray-900">
-    <form action="/session" method="POST" class="justify-center">
-        @csrf
-        @if ($errors->any())
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-            <strong class="font-bold">Whoops!</strong>
-            <ul class="list-disc list-inside mt-2">
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        <div class="flex min-h-screen justify-center items-center">
-            <input type="text" name="table" value="tableone">
-            <input type="text" name="password" value="nigga">
-        </div>
+    <div class="flex flex min-h-screen justify-center items-center space-x-6">
+        <form action="/session-table1" method="POST" class="justify-center ">
+            @csrf
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <strong class="font-bold">Whoops!</strong>
+                <ul class="list-disc list-inside mt-2">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
-        <button type="submit">Order Now</button>
-    </form>
+                <button type="submit" class="cursor-pointer">
+                    <div class="dark:bg-white h-20 w-20">
+                         <h1>Table 1</h1>
+                        <input type="hidden" name="table" value="tableone">
+                        <input type="hidden" name="password" value="nigga">
+                    </div>
+                </button>
+
+    
+
+
+        </form>
+
+        <form action="/session-table2" method="POST" class="justify-center ">
+            @csrf
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <strong class="font-bold">Whoops!</strong>
+                <ul class="list-disc list-inside mt-2">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+
+                <button type="submit" class="cursor-pointer">
+                    <div class="dark:bg-white h-20 w-20">
+                         <h1>Table 2</h1>
+                        <input type="hidden" name="table" value="tabletwo">
+                        <input type="hidden" name="password" value="nigga">
+                    </div>
+                </button>
+
+
+
+        </form>
+
+          <form action="/session-table3" method="POST" class="justify-center ">
+            @csrf
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <strong class="font-bold">Whoops!</strong>
+                <ul class="list-disc list-inside mt-2">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+
+                <button type="submit" class="cursor-pointer">
+                    <div class="dark:bg-white h-20 w-20">
+                         <h1>Table 3</h1>
+                        <input type="hidden" name="table" value="tablethree">
+                        <input type="hidden" name="password" value="nigga">
+                    </div>
+                </button>
+
+
+
+        </form>
+
+          <form action="/session-table4" method="POST" class="justify-center ">
+            @csrf
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <strong class="font-bold">Whoops!</strong>
+                <ul class="list-disc list-inside mt-2">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+
+                <button type="submit" class="cursor-pointer">
+                    <div class="dark:bg-white h-20 w-20">
+                         <h1>Table 4</h1>
+                        <input type="hidden" name="table" value="tablefour">
+                        <input type="hidden" name="password" value="nigga">
+                    </div>
+                </button>
+
+
+
+        </form>
+
+          <form action="/session-table5" method="POST" class="justify-center ">
+            @csrf
+            @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <strong class="font-bold">Whoops!</strong>
+                <ul class="list-disc list-inside mt-2">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+
+                <button type="submit" class="cursor-pointer">
+                    <div class="dark:bg-white h-20 w-20">
+                         <h1>Table 5</h1>
+                        <input type="hidden" name="table" value="tablefive">
+                        <input type="hidden" name="password" value="nigga">
+                    </div>
+                </button>
+
+
+
+        </form>
+    </div>
+
 </body>
 
 </html>
