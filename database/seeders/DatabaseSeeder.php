@@ -21,14 +21,6 @@ class DatabaseSeeder extends Seeder
             'password' => 'nigga',
         ]);
 
-        OrderDone::factory()->create([
-            'id' => '2',
-            'user_id' => '5',
-            'table' => 'tablefive',
-            'coffee_id' => '5',
-            'coffee' => 'choco',
-            'price' => '10',
-            'quantity' => '10',
-        ]);
+      
     }
 }

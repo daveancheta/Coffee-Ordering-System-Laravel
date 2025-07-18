@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coffee;
 use App\Models\Order;
+use App\Models\OrderDone;
 use Illuminate\Http\Request;
 
 class QueueOrder extends Controller
@@ -20,13 +22,15 @@ class QueueOrder extends Controller
      */
     public function create()
     {
-        $coffeOrders = Order::all();
+        $coffeeOrders = Order::latest()
+            ->where('status', NULL)
+            ->get();
 
-        foreach ($coffeOrders as $order) {
+        foreach ($coffeeOrders as $order) {
             $order->price = $order->price * $order->quantity;
             $order->image = asset('storage/' . $order->image);
         }
-        return response()->json($coffeOrders);
+        return response()->json($coffeeOrders);
     }
 
     /**
@@ -67,5 +71,28 @@ class QueueOrder extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function submit(Request $request)
+    {
+        $validated = request()->validate([
+            'order_id' => ['required'],
+            'user_id' => ['required'],
+            'table' => ['required'],
+            'coffee_id' => ['required'],
+            'coffee' => ['required'],
+            'quantity' => ['required'],
+            'price' => ['required'],
+            'status' => ['required'],
+        ]);
+
+        OrderDone::create($validated);
+
+        $coffeeId = $request->input('order_id');
+        // $coffee = Order::where('id', $coffeeId)->first(); get by specific column
+        $coffee = Order::find($coffeeId);
+        $coffee->update(['status' => 'done']);
+
+        return response()->json(['message' => 'Order marked as done']);
     }
 }

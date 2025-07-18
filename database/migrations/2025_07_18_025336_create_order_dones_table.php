@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('coffee_id');
             $table->string('coffee');
             $table->string('price');
+            $table->string('status');
             $table->string('quantity');
-
             $table->timestamps();
         });
     }

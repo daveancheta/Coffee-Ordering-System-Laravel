@@ -78,7 +78,22 @@ class OrderController extends Controller
      */
     public function update(Request $request)
     {
-     //
+       request()->validate([
+            'user_id' => ['required'],
+            'table' => ['required'],
+            'coffee_id' => ['required'],
+            'coffee' => ['required'],
+            'quantity' => ['required'],
+            'price' => ['required'],
+            'status' => ['required'],
+        ]);
+
+        $coffeeId = $request->input('coffee_id');
+        $coffee = Order::find($coffeeId);
+        $coffee->update(['status' => 'done']);
+
+          return response()->json(['message' => 'Order marked as done']);
+
     }
 
     /**
@@ -86,6 +101,28 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+       //
+    }
+    public function submit(Request $request)
+    {
+        $validated = request()->validate([
+            'order_id' => ['required'],
+            'user_id' => ['required'],
+            'table' => ['required'],
+            'coffee_id' => ['required'],
+            'coffee' => ['required'],
+            'quantity' => ['required'],
+            'price' => ['required'],
+            'status' => ['required'],
+        ]);
+
+       
+
+        $coffeeId = $request->input('order_id');
+        // $coffee = Order::where('id', $coffeeId)->first(); get by specific column
+        $coffee = Order::all($coffeeId);
+        $coffee->update(['status' => 'done']);
+
+        return response()->json(['message' => 'Order marked as done']);
     }
 }

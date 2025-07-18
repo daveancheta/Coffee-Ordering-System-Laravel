@@ -49,7 +49,10 @@ class GetController extends Controller
     {
         $userId = Auth::id();
 
-        $coffeeDoneCount = OrderDone::where('user_id', $userId)->count();
+        $coffeeDoneCount = OrderDone::where('user_id', $userId)
+            ->where('status', 'done')
+            ->get()
+            ->count();
 
         return response()->json(['count' => $coffeeDoneCount]);
     }

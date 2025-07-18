@@ -33,8 +33,11 @@ Route::post('/add-coffee', [CoffeeController::class, 'store']);
 Route::patch('/edit/{coffee}', [CoffeeController::class, 'update']);
 Route::get('/queue-order', [QueueOrder::class, 'index']);
 Route::get('/queueOrders', [QueueOrder::class, 'create']);
+Route::post('/submit-done', [QueueOrder::class, 'submit']);
 
 // Order Coffee
 Route::post('/order-post', [OrderController::class, 'store']);
 Route::get('/coffeeDone', [GetController::class, 'coffeeDone']);
 Route::get('/notifCount', [GetController::class, 'notifCount']);
+Route::post('/update-done', [OrderController::class, 'update']);
+Route::delete('/delete/{order}', [OrderController::class, 'destroy']);
