@@ -21,6 +21,7 @@
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
             </a>
+            
             <button data-collapse-toggle="navbar-default" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-default" aria-expanded="false">
@@ -55,13 +56,7 @@
                         <a href="#"
                             class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
                     </li>
-                    <form class="hidden" action="/delete/{{ Auth::user()->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                    </form>
                     <button id="notification" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation" >
-
-                      
 
                     </button>
                 </ul>
@@ -206,7 +201,7 @@
             
             html = `
                   <button type="button"
-                            class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >
+                            class="update-notif relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 viewBox="0 0 24 24" >
@@ -232,6 +227,36 @@
     
      setInterval(loadItems, 500);
 
+           // Set CSRF token for all AJAX requests (you already have this)
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    });
+
+    // Event delegation: handle click on dynamically loaded buttons
+    $(document).on('click', '.update-notif', function () {
+        let button = $(this);
+
+        // Get data from button
+        let data = {
+            user_id: {{ Auth::user()->id }},
+        };
+
+        // Send data via AJAX POST
+        $.ajax({
+            url: '/update-notif',
+            type: 'POST',
+            data: data,
+            success: function (response) {
+                loadItems(); // refresh the list
+            },
+            error: function (xhr) {
+                console.error(xhr.responseText);
+                alert('Failed to mark as done.');
+            }
+        });
+    });
    
     </script>
 

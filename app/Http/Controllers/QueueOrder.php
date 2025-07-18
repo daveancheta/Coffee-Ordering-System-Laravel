@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Coffee;
 use App\Models\Order;
 use App\Models\OrderDone;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class QueueOrder extends Controller
@@ -29,6 +30,7 @@ class QueueOrder extends Controller
         foreach ($coffeeOrders as $order) {
             $order->price = $order->price * $order->quantity;
             $order->image = asset('storage/' . $order->image);
+            $order->time_ago = Carbon::parse($order->created_at)->diffForHumans();
         }
         return response()->json($coffeeOrders);
     }
@@ -94,5 +96,17 @@ class QueueOrder extends Controller
         $coffee->update(['status' => 'done']);
 
         return response()->json(['message' => 'Order marked as done']);
+    }
+
+    public function updatenotif(Request $request)
+    {
+        $validated = request()->validate([
+            'user_id' => ['required'],
+        ]);
+
+        $userId = $request->input('user_id');
+        OrderDone::where('user_id', $userId)->update(['status' => 'draft']);
+        // $coffee = Order::find($coffeeId);
+
     }
 }

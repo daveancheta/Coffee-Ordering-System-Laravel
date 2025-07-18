@@ -51,7 +51,9 @@
   class="mark-as-done inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
   data-id="${order.coffee_id}" data-user="${order.user_id}" data-order="${order.id}" data-table="${order.table}" data-coffee="${order.coffee}" data-quantity="${order.quantity}" data-price="${order.price}">
   Mark as Done
-</button>
+</button><br>
+<span class="flex justify-center items-center mt-5 mb-0 dark:bg-white rounded-sm">${order.time_ago}</span>
+
 
     </div>
   </div>

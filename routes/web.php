@@ -34,6 +34,7 @@ Route::patch('/edit/{coffee}', [CoffeeController::class, 'update']);
 Route::get('/queue-order', [QueueOrder::class, 'index']);
 Route::get('/queueOrders', [QueueOrder::class, 'create']);
 Route::post('/submit-done', [QueueOrder::class, 'submit']);
+Route::post('/update-notif', [QueueOrder::class, 'updateNotif']);
 
 // Order Coffee
 Route::post('/order-post', [OrderController::class, 'store']);
