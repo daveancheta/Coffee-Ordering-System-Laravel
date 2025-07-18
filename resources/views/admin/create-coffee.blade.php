@@ -115,9 +115,30 @@
 
         <div
             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
+            <div class="relative">
                 <img class="rounded-t-lg w-full h-50" src="{{ asset('storage/' . $ce->image) }}" alt="" />
-            </a>
+              
+                  <div class="absolute top-3 left-3">
+                                            @if($ce->stock > 1 && $ce->stock <= 10)
+
+
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium uppercase tracking-wide bg-yellow-100 text-yelllow-800">
+                            Low Stocks
+                        </span>
+                        @elseif($ce->stock === 0)
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium uppercase tracking-wide bg-red-100 text-red-800">
+                            No Stocks
+                        </span>
+                        @else
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium uppercase tracking-wide bg-green-100 text-green-800">
+                            Order Now
+                        </span>
+                        @endif
+                  </div>
+                </div>
             <div class="p-5">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $ce->coffee }}</h5>
                 <div class="flex justify-between">

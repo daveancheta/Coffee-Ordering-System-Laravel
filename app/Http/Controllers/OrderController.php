@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coffee;
 use App\Models\Order;
+use App\Models\OrderDone;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -51,7 +52,6 @@ class OrderController extends Controller
 
         return redirect('/display-coffee');
     }
-
     /**
      * Display the specified resource.
      */
@@ -71,9 +71,9 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+     //
     }
 
     /**

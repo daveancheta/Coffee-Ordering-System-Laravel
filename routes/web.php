@@ -33,3 +33,5 @@ Route::patch('/edit/{coffee}', [CoffeeController::class, 'update']);
 
 // Order Coffee
 Route::post('/order-post', [OrderController::class, 'store']);
+Route::get('/coffeeDone', [GetController::class, 'coffeeDone']);
+Route::get('/notifCount', [GetController::class, 'notifCount']);
