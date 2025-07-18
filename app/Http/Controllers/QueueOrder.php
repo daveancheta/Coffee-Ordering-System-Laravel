@@ -100,13 +100,12 @@ class QueueOrder extends Controller
 
     public function updatenotif(Request $request)
     {
-        $validated = request()->validate([
+        request()->validate([
             'user_id' => ['required'],
         ]);
 
         $userId = $request->input('user_id');
-        OrderDone::where('user_id', $userId)->update(['status' => 'draft']);
-        // $coffee = Order::find($coffeeId);
+        OrderDone::where('user_id', $userId)->update(['status' => 'draft']); // Change all the status of the user
 
     }
 }

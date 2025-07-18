@@ -3,8 +3,8 @@
 
         <!-- drawer component -->
         <div id="drawer-navigation"
-            class="fixed top-0 left-0 z-40 w-80 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800"
-            tabindex="-1" aria-labelledby="drawer-navigation-label">
+            class="fixed top-0 left-0 z-40 w-80 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800 "
+            tabindex="-1" aria-labelledby="drawer-navigation-label"  style="scrollbar-width: thin; scrollbar-color: #6b7280 transparent; ">
             <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">
                 Notification</h5>
             <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
@@ -17,7 +17,7 @@
                 </svg>
                 <span class="sr-only">Close menu</span>
             </button>
-            <div class="py-4 overflow-y-auto">
+            <div class="py-4 overflow-y-auto scrollbar-hide">
                 <div id="item-list">
                     <p>Loading</p>
                 </div>
