@@ -29,7 +29,7 @@
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 1</h1>
                         <input type="hidden" name="table" value="tableone">
-                        <input type="hidden" name="password" value="nigga">
+                        <input type="hidden" name="password" value="pass1">
                     </div>
                 </button>
 
@@ -56,7 +56,7 @@
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 2</h1>
                         <input type="hidden" name="table" value="tabletwo">
-                        <input type="hidden" name="password" value="nigga">
+                        <input type="hidden" name="password" value="pass2">
                     </div>
                 </button>
 
@@ -82,7 +82,7 @@
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 3</h1>
                         <input type="hidden" name="table" value="tablethree">
-                        <input type="hidden" name="password" value="nigga">
+                        <input type="hidden" name="password" value="pass3">
                     </div>
                 </button>
 
@@ -108,7 +108,7 @@
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 4</h1>
                         <input type="hidden" name="table" value="tablefour">
-                        <input type="hidden" name="password" value="nigga">
+                        <input type="hidden" name="password" value="pass4">
                     </div>
                 </button>
 
@@ -134,7 +134,7 @@
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 5</h1>
                         <input type="hidden" name="table" value="tablefive">
-                        <input type="hidden" name="password" value="nigga">
+                        <input type="hidden" name="password" value="pass5">
                     </div>
                 </button>
 
