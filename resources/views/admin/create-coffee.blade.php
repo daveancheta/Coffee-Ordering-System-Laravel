@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="flex justify-between mb-10">
         <div>
-            <h1 class="text-3xl font-bold text-white">Available Cars</h1>
+            <h1 class="text-3xl font-bold text-white">Available Coffee</h1>
         </div>
 
         <div>
@@ -71,7 +71,7 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">stock</label>
                             <input type="number" name="stock" id="price"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="$2999">
+                                placeholder="1000 cups">
                         </div>
                         <div class="col-span-2">
                             <label for="category"
@@ -87,7 +87,7 @@
                                 Description</label>
                             <textarea name="description" id="description" rows="4"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Write product description here"></textarea>
+                                placeholder="Write coffee description here"></textarea>
                         </div>
                     </div>
                     <button type="submit"

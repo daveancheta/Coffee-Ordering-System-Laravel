@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GetController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\QueueOrder;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,8 @@ Route::post('/session-table5', [SessionController::class, 'session_five']);
 // Coffee Admin
 Route::post('/add-coffee', [CoffeeController::class, 'store']);
 Route::patch('/edit/{coffee}', [CoffeeController::class, 'update']);
+Route::get('/queue-order', [QueueOrder::class, 'index']);
+Route::get('/queueOrders', [QueueOrder::class, 'create']);
 
 // Order Coffee
 Route::post('/order-post', [OrderController::class, 'store']);

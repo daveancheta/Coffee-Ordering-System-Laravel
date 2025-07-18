@@ -37,12 +37,17 @@ class OrderController extends Controller
             'coffee' => ['required'],
             'quantity' => ['required'],
             'price' => ['required'],
+            'image' => ['required']
         ]);
+
+         if ($request->hasFile('image')) {
+            $validated['image'] = $request->image->store('coffee', 'public');
+        }
 
         Order::create($validated);
 
         $coffeeId = $request->input('coffee_id'); // get the id from the input
-        $coffee = Coffee::find($coffeeId); // getting the id from coffee table - ggs guys next commit
+        $coffee = Coffee::find($coffeeId); // getting the id from the coffee table - ggs guys next commit
 
         $currentStock = Coffee::where('id', $coffeeId)->first();
         $quantity = $request->input('quantity');

@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
-            ->constrained('users')
-            ->onDelete('cascade');
+                ->constrained('users')
+                ->onDelete('cascade');
             $table->string('table');
+             $table->string('coffee_id');
             $table->string('coffee');
             $table->string('quantity');
             $table->string('price');
+            $table->string('image');
             $table->timestamps();
         });
     }

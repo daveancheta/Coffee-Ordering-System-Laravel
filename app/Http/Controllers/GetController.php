@@ -32,7 +32,8 @@ class GetController extends Controller
     {
 
         $userId = Auth::id();
-        $coffeeDone = OrderDone::where('user_id', $userId)
+        $coffeeDone = OrderDone::latest()
+            ->where('user_id', $userId)
             ->get();
 
         foreach ($coffeeDone as $item) {

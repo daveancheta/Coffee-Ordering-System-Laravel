@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div>
-                        <form action="/order-post" method="POST">
+                        <form action="/order-post" method="POST" enctype="multipart/form-data">
                             @csrf
                             @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -99,6 +99,7 @@
 
                             @else
                             <input type="hidden" name="coffee_id" value="{{ $ce->id}}">
+                             <input type="hidden" name="image" value="{{ $ce->image}}">
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             <input type="hidden" name="table" value="{{ Auth::user()->table}}">
                             <input type="hidden" name="coffee" value="{{ $ce->coffee}}">
@@ -145,7 +146,7 @@
 
                if (coffeeDone.length === 0) {
                 html = `
-                    <div class="p-4 mb-4 text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-white dark:border-gray-700">
+                    <div class="p-4 mb-4 text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-white dark:border-gray-700 select-none">
                         <h3 class="text-lg font-medium">No orders yet.</h3>
                         <p class="text-sm mt-2">Please wait for new coffee orders to appear here.</p>
                     </div>
@@ -157,19 +158,20 @@
                 <div id="alert-additional-content-3" class="p-4 mb-4 text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-white dark:border-green-800"  role="alert">
                   
                      
-  <div class="flex items-center">
+  <div class="flex items-center select-none">
     <svg class="shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
       <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
     </svg>
     <span class="sr-only">Info</span>
     <h3 class="text-lg font-medium">Order Done!</h3>
   </div>
-  <div class="mt-2 mb-4 text-sm">
+  <div class="mt-2 mb-4 text-sm select-none">
     Coffee: <span class="uppercase">${item.coffee}</span>
      Quantity: <span class="uppercase">${item.quantity}</span>
       Price: <span class="uppercase">$${item.price}</span>
   </div>
-  ${item.time_ago}
+  <span class="select-none"> ${item.time_ago}</soan>
+ 
 </div>    `;
             });
         }

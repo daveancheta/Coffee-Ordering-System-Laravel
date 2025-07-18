@@ -28,8 +28,8 @@
                 <button type="submit" class="cursor-pointer">
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 1</h1>
-                        <input type="hidden" name="table" value="tableone">
-                        <input type="hidden" name="password" value="pass1">
+                        <input type="hidden" name="table" value="table 1">
+                        <input type="hidden" name="password" value="nigga">
                     </div>
                 </button>
 
@@ -55,8 +55,8 @@
                 <button type="submit" class="cursor-pointer">
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 2</h1>
-                        <input type="hidden" name="table" value="tabletwo">
-                        <input type="hidden" name="password" value="pass1">
+                        <input type="hidden" name="table" value="table 2">
+                        <input type="hidden" name="password" value="nigga">
                     </div>
                 </button>
 
@@ -81,8 +81,8 @@
                 <button type="submit" class="cursor-pointer">
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 3</h1>
-                        <input type="hidden" name="table" value="tablethree">
-                        <input type="hidden" name="password" value="pass1">
+                        <input type="hidden" name="table" value="table 3">
+                        <input type="hidden" name="password" value="nigga">
                     </div>
                 </button>
 
@@ -107,8 +107,8 @@
                 <button type="submit" class="cursor-pointer">
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 4</h1>
-                        <input type="hidden" name="table" value="tablefour">
-                        <input type="hidden" name="password" value="pass1">
+                        <input type="hidden" name="table" value="table 4">
+                        <input type="hidden" name="password" value="nigga">
                     </div>
                 </button>
 
@@ -133,8 +133,8 @@
                 <button type="submit" class="cursor-pointer">
                     <div class="dark:bg-white h-20 w-20">
                          <h1>Table 5</h1>
-                        <input type="hidden" name="table" value="tablefive">
-                        <input type="hidden" name="password" value="pass1">
+                        <input type="hidden" name="table" value="table 5">
+                        <input type="hidden" name="password" value="nigga">
                     </div>
                 </button>
 

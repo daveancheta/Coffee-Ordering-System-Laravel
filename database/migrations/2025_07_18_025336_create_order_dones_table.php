@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('coffee');
             $table->string('price');
             $table->string('quantity');
-             $table->string('status')->nullable();
+
             $table->timestamps();
         });
     }
