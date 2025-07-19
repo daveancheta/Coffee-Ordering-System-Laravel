@@ -140,9 +140,53 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+          let lastKnownOrderIds = new Set();
+          let availableVoices = [];
+
+  // Run voice load immediately and when voices change
+function loadVoices() {
+    const voices = speechSynthesis.getVoices();
+    if (voices.length > 0) {
+        availableVoices = voices;
+    } else {
+        // Try again after a short delay
+        setTimeout(loadVoices, 100);
+    }
+}
+
+window.speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
+
+    function speakOrder(text) {
+    if ('speechSynthesis' in window) {
+        const synth = window.speechSynthesis;
+
+        if (availableVoices.length === 0) {
+            // Voices not loaded yet, delay the speech
+            setTimeout(() => speakOrder(text), 200);
+            return;
+        }
+
+        const selectedVoice = availableVoices.find(voice =>
+            voice.name.includes("Google US English") || voice.lang === "en-US"
+        );
+
+        const utterance = new SpeechSynthesisUtterance(text);
+
+        if (selectedVoice) {
+            utterance.voice = selectedVoice;
+        }
+
+        synth.cancel(); // Stop any ongoing speech
+        synth.speak(utterance);
+    }
+}
+
         function loadItems() {
         $.get('/coffeeDone', function(coffeeDone) {
             let html = '';
+              let newOrders = [];
+
 
                if (coffeeDone.length === 0) {
                 html = `
@@ -153,6 +197,13 @@
                 `;
                    }   else {
             coffeeDone.forEach(item => {
+
+                    // ✅ Check for new orders here
+                    if (!lastKnownOrderIds.has(item.id)) {
+                        newOrders.push(item);
+                        lastKnownOrderIds.add(item.id);
+                    }
+
                 html += `
                 
                 <div id="alert-additional-content-3" class="p-4 mb-4 text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-white dark:border-green-800"  role="alert">
@@ -170,12 +221,18 @@
      Quantity: <span class="uppercase">${item.quantity}</span>
       Price: <span class="uppercase">$${item.price}</span>
   </div>
-  <span class="select-none"> ${item.time_ago}</soan>
+  <span class="select-none"> ${item.time_ago}</span>
  
 </div>    `;
             });
         }
             $('#item-list').html(html);
+
+               newOrders.forEach(item => {
+                const message = `Your order is ready ${item.table}. ${item.quantity} cup${item.quantity > 1 ? 's' : ''} of ${item.coffee}. Always remember, our coffee is the best in the world. Come back soon, our valued customer. Thank you — with love, by CafeVibe.`;
+                speakOrder(message);
+            });
+
         }).fail(() => {
             $('#item-list').html('<p style="color:red;">Failed to load items.</p>');
         });
@@ -184,7 +241,7 @@
     loadItems();
 
     
-     setInterval(loadItems, 500);
+     setInterval(loadItems, 3000);
 
    
 
